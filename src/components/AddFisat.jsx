@@ -48,7 +48,7 @@ const AddFisat = () => {
                 </div>
                 <div className="col col-12 col-sm-6 col-md-6 col-lg-16 col-xl-6 col-xxl-6">
                 <label htmlFor="" className="form-label">Course</label>
-                <select id="" className="form-control" name='course' value={data.course} onChange={inputHandler}>
+                <select className="form-control" name='course' value={data.course} onChange={inputHandler}>
                         <option value="MCA">MCA</option>
                         <option value="MBA">MBA</option>
                         <option value="B-Tech">B-Tech</option>
