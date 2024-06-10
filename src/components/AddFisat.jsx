@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import NavFisat from './NavFisat'
+import axios from 'axios'
 
 const AddFisat = () => {
     const[data,setData]=useState(
-        {
-            
-            "fname":"",
-            "lname":"",
+        { 
+          
+            "firstname":"",
+            "lastname":"",
             "college":"",
             "dob":"",
             "course":"",
@@ -20,6 +21,18 @@ const AddFisat = () => {
     }
     const readValue=()=>{
         console.log(data)
+        axios.post("https://courseapplogix.onrender.com/addstudents",data).then(
+            (response)=>{
+                console.log(response.data)
+                if (response.data.status=="success") {
+                    alert("successfully addedd")
+                
+                    
+                } else {
+                    alert("error")
+                }
+            }
+        ).catch().finally()
     }
   return (
     <div>
@@ -32,11 +45,12 @@ const AddFisat = () => {
             <div className="row">
                 <div className="col col-12 col-sm-6 col-md-6 col-lg-16 col-xl-6 col-xxl-6">
                     <label htmlFor="" className="form-label">First Name</label>
-                    <input type="text" className="form-control" name='fname' value={data.fname} onChange={inputHandler}/>
+                    <input type="text" className="form-control" name='firstname' value={data.firstname} onChange={inputHandler}/>
                 </div>
+                
                 <div className="col col-12 col-sm-6 col-md-6 col-lg-16 col-xl-6 col-xxl-6">
                     <label htmlFor="" className="form-label">Last Name</label>
-                    <input type="text" className="form-control" name='lname' value={data.lname} onChange={inputHandler} />
+                    <input type="text" className="form-control" name='lastname' value={data.lastname} onChange={inputHandler} />
                 </div>
                 <div className="col col-12 col-sm-6 col-md-6 col-lg-16 col-xl-6 col-xxl-6">
                     <label htmlFor="" className="form-label">College</label>
@@ -49,6 +63,7 @@ const AddFisat = () => {
                 <div className="col col-12 col-sm-6 col-md-6 col-lg-16 col-xl-6 col-xxl-6">
                 <label htmlFor="" className="form-label">Course</label>
                 <select className="form-control" name='course' value={data.course} onChange={inputHandler}>
+                        <option value=""></option>
                         <option value="MCA">MCA</option>
                         <option value="MBA">MBA</option>
                         <option value="B-Tech">B-Tech</option>

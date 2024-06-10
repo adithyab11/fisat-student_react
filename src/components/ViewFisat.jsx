@@ -5,7 +5,7 @@ import axios from 'axios'
 const ViewFisat = () => {
   const[data,setData]=useState([])
   const fetchData=()=>
-    {axios.get("https://anishpdm.github.io/dummy-api-new/student.json").then(
+    {axios.get("https://courseapplogix.onrender.com/getdata").then(
         (response)=>{
           setData(response.data)
         }
@@ -23,7 +23,7 @@ const ViewFisat = () => {
                 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Id</th>
+      
       <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
       <th scope="col">College</th>
@@ -40,7 +40,7 @@ const ViewFisat = () => {
     {data.map((value,index)=>
     {
       return   <tr>
-      <td scope="row">{value._id}</td>
+      
       <td>{value.firstname}</td>
       <td>{value.lastname}</td>
       <td>{value.college}</td>
